@@ -1,4 +1,124 @@
 {
   "getblockstats": {
+    "height": {
+      "index": true, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "time": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "mediantime": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "txs": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "swtxs": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "ins": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "outs": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "subsidy": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "totalfee": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "utxo_increase": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "utxo_size_inc": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "total_size": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "total_weight": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "swtotal_size": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "swtotal_weight": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "total_out": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "minfee": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "maxfee": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "medianfee": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "avgfee": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "minfeerate": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "maxfeerate": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "medianfeerate": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }, 
+    "avgfeerate": {
+      "index": false, 
+      "required": true, 
+      "type": "int"
+    }
   }
 }

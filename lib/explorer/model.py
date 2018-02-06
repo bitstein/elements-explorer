@@ -15,11 +15,11 @@ class Chaininfo(ormin.Model):
 class Block(ormin.Model):
     height = ormin.IntField(index=True)
     blob = ormin.TextField()
-    zzz = ormin.StringField(required=False)
-    # yyy = ormin.StringField(required=False)
+    # zzz = ormin.StringField(required=False)
+    yyy = ormin.StringField(required=False)
 
-    xxx = ormin.StringField(required=False)
-    # xxx = ormin.StringField(required=True)
+    # xxx = ormin.StringField(required=False)
+    xxx = ormin.StringField(required=True)
 
 class Tx(ormin.Model):
     blockhash = ormin.StringField(index=True)
@@ -39,6 +39,6 @@ ORMIN_DOMAIN = ormin.Domain([
     Tx,
     Blockstats,
     Mempoolstats,
-    ZZZ,
-    # YYY,
+    # ZZZ,
+    YYY,
 ])

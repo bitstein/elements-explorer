@@ -19,17 +19,17 @@ DB_FACTORY = minql.MinqlFactory(CONFIG['DB_TYPE'], CONFIG['DB_ADR'], CONFIG['DB_
 DB_CLIENT = DB_FACTORY.create()
 
 AVAILABLE_CHAINS = {
-    "bitcoin": {
-        'rpc': RpcCaller(os.environ.get('BITCOIN_ADR'),
-                         os.environ.get('BITCOIN_RPCUSER'),
-                         os.environ.get('BITCOIN_RPCPASSWORD')
-        ),
-        'zmq': os.environ.get('BITCOIN_ZMQ'),
-        'db': DB_FACTORY,
-        'properties': {
-            'stats_support': True,
-        },
-    },
+    # "bitcoin": {
+    #     'rpc': RpcCaller(os.environ.get('BITCOIN_ADR'),
+    #                      os.environ.get('BITCOIN_RPCUSER'),
+    #                      os.environ.get('BITCOIN_RPCPASSWORD')
+    #     ),
+    #     'zmq': os.environ.get('BITCOIN_ZMQ'),
+    #     'db': DB_FACTORY,
+    #     'properties': {
+    #         'stats_support': True,
+    #     },
+    # },
     "testnet3": {
         'rpc': RpcCaller(os.environ.get('TESTNET3_ADR'),
                          os.environ.get('TESTNET3_RPCUSER'),
@@ -56,7 +56,7 @@ AVAILABLE_CHAINS = {
 
 REORG_CRON_PARAMS = {
     "bitcoin": [60, 300], # every 1 min after 5 min
-    "testnet3": [60, 60 * 60], # every 1 min after 1 hour
+    "testnet3": [60, 60 * 5], # every 1 min after 5 min
     "elementsregtest": [60, 60 * 5], # every 1 min after 5 min
 }
 

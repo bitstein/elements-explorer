@@ -19,18 +19,17 @@ DB_FACTORY = minql.MinqlFactory(CONFIG['DB_TYPE'], CONFIG['DB_ADR'], CONFIG['DB_
 DB_CLIENT = DB_FACTORY.create()
 
 AVAILABLE_CHAINS = {
-    "bitcoin": {
-        'rpc': RpcCaller(os.environ.get('BITCOIN_ADR'),
-                         os.environ.get('BITCOIN_RPCUSER'),
-                         os.environ.get('BITCOIN_RPCPASSWORD')
-        ),
-        'zmq': os.environ.get('BITCOIN_ZMQ'),
-        'db': DB_FACTORY,
-        'properties': {
-            'stats_support': True,
-            'chain_id': '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f',
-        },
-    },
+    # "bitcoin": {
+    #     'rpc': RpcCaller(os.environ.get('BITCOIN_ADR'),
+    #                      os.environ.get('BITCOIN_RPCUSER'),
+    #                      os.environ.get('BITCOIN_RPCPASSWORD')
+    #     ),
+    #     'zmq': os.environ.get('BITCOIN_ZMQ'),
+    #     'db': DB_FACTORY,
+    #     'properties': {
+    #         'stats_support': True,
+    #     },
+    # },
     "testnet3": {
         'rpc': RpcCaller(os.environ.get('TESTNET3_ADR'),
                          os.environ.get('TESTNET3_RPCUSER'),

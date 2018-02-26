@@ -4,3 +4,4 @@
 *.pyc
 /.build
 .explorer-data
+.DS_Store

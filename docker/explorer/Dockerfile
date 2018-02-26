@@ -24,7 +24,7 @@ ADD explorer /build_docker/explorer
 ADD setup.py /build_docker/setup.py
 RUN python /build_docker/setup.py develop
 ADD webflask /build_docker/webflask
-ADD gui /build_docker/gui
+ADD gui2 /build_docker/gui
 
 ADD docker/conf/explorer.proc /build_docker/docker/conf/explorer.proc
 ADD docker/conf/explorer.env /build_docker/docker/conf/explorer.env

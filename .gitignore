@@ -1,8 +1,11 @@
 /dist
 /.tmp
 /gui/node_modules
-/gui2/node_modules
 *.pyc
 /.build
 .explorer-data
 .DS_Store
+
+/gui2/node_modules
+/gui2/public/js/bundle.js
+/gui2/public/css/styles.css

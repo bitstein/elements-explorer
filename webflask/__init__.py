@@ -16,19 +16,20 @@ app = create_restmin_app(app_name=__name__,
                          base_url='/api/v0/',
                          request_processor=explorer_request_processor)
 
-app.static_url_path = ''
+app.static_url_path = 'static/'
 app.static_folder   = GUI_DIRECTORY
-app.add_url_rule('/<path:filename>',
-    endpoint  = 'static',
-    view_func = app.send_static_file)
+# app.add_url_rule('/<path:filename>',
+#     endpoint  = 'static',
+#     view_func = app.send_static_file)
 
-@app.route('/')
-def index():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
     return app.send_static_file('index.html')
 
-@app.route('/<path:filename>')
-def send_file(filename):
-    return send_from_directory(GUI_DIRECTORY, filename)
+# @app.route('/<path:filename>')
+# def send_file(filename):
+#     return send_from_directory(GUI_DIRECTORY, filename)
 
 if __name__ == '__main__':
     app.debug = True

@@ -7,9 +7,9 @@ class Navbar extends Component {
         return (
           <nav className="navbar">
             <div className="container">
-              <a className="navbar-brand" href="/">
+              <Link className="navbar-brand" to="/">
                 <img src="/static/img/icons/Menu-logo.svg" height="50" className="d-inline-block align-top" alt="" />
-              </a>
+              </Link>
             </div>
           </nav>
         );

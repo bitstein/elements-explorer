@@ -11,18 +11,20 @@ import BlockPage from './components/block_page.jsx';
 class Body extends Component {
     render() {
         return (
+          <BrowserRouter>
           <div className="explorer-container">
             <div className="content-wrap">
               <Navbar />
-              <BrowserRouter>
+
                 <Switch>
                   <Route exact path="/" component={RecentBlocks}/>
                   <Route path="/block/:blockhash" component={BlockPage}/>
                 </Switch>
-              </BrowserRouter>
+
             </div>
             <Footer />
           </div>
+          </BrowserRouter>
         );
     }
 }

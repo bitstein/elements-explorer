@@ -348,7 +348,7 @@
 
     <div ng-repeat="input in transaction.vin">
       <table border="1">
-        <tr>
+        <tr ng-show="input.sequence">
           <td>Sequence:</td>
           <td>{{ input.sequence }}</td>
         </tr>
@@ -358,27 +358,27 @@
           <td><pre>{{ input.coinbase | limitTo:rawhex_limit }}</pre></td>
         </tr>
 
-        <tr ng-show="!input.coinbase">
+        <tr ng-show="input.txid">
           <td>Txid:</td>
           <td><a ng-href="#!/chain/{{selected_chain}}/tx/{{input.txid}}">{{ input.txid }}</a></td>
         </tr>
 
-        <tr ng-show="!input.coinbase">
+        <tr ng-show="input.vout">
           <td>vout:</td>
           <td>{{ input.vout }}</td>
         </tr>
 
-        <tr ng-show="!input.coinbase">
+        <tr ng-show="input.scriptSig.asm">
           <td>scriptSig.asm:</td>
           <td><pre>{{ input.scriptSig.asm | limitTo:rawhex_limit }}</pre></td>
         </tr>
 
-        <tr ng-show="!input.coinbase">
+        <tr ng-show="input.scriptSig.hex">
           <td>scriptSig.hex:</td>
           <td><pre>{{ input.scriptSig.hex | limitTo:rawhex_limit }}</pre></td>
         </tr>
 
-        <tr>
+        <tr ng-show="input.txinwitness">
           <td>txinwitness:</td>
           <td>
             <table border="1">
@@ -407,12 +407,27 @@
           <td>{{ output.n }}</td>
         </tr>
 
-        <tr ng-show="!IsCTOut(output);">
+        <tr ng-show="output.asset">
+          <td>Asset:</td>
+          <td>{{ output.asset }}</td>
+        </tr>
+
+        <tr ng-show="output.assetcommitment">
+          <td>Asset (confidential):</td>
+          <td>{{ output.assetcommitment }}</td>
+        </tr>
+
+        <tr ng-show="!IsCTOut(output)">
           <td>value:</td>
           <td>{{ output.value }}</td>
         </tr>
 
-        <tr ng-show="IsCTOut(output);">
+        <tr ng-show="IsCTOut(output) && output.amountcommitment">
+          <td>Amount (confidential):</td>
+          <td>{{ output.amountcommitment }}</td>
+        </tr>
+
+        <tr ng-show="IsCTOut(output) && output.serValue">
           <td>serValue:</td>
           <td>{{ output.serValue }}</td>
         </tr>
@@ -437,33 +452,71 @@
           <td>{{ output["value-maximum"] }} <nobr ng-show="!IsCTOut(output);">non-CT</nobr></td>
         </tr>
 
-        <tr>
-          <td>scriptSig.asm:</td>
+        <tr ng-show="output.scriptPubKey.asm">
+          <td>scriptPubKey.asm:</td>
           <td>{{ output.scriptPubKey.asm }}</td>
         </tr>
 
-        <tr>
+        <tr ng-show="output.scriptPubKey.hex">
           <td>scriptPubKey.hex:</td>
           <td>{{ output.scriptPubKey.hex }}</td>
         </tr>
 
-        <tr>
+        <tr ng-show="output.scriptPubKey.reqSigs">
           <td>scriptPubKey.reqSigs:</td>
           <td>{{ output.scriptPubKey.reqSigs }}</td>
         </tr>
 
-        <tr>
+        <tr ng-show="output.scriptPubKey.type">
           <td>scriptPubKey.type:</td>
           <td>{{ output.scriptPubKey.type }}</td>
         </tr>
 
-        <tr>
-          <td>output.scriptPubKey.addresses:</td>
+        <tr ng-show="output.scriptPubKey.addresses">
+          <td>scriptPubKey.addresses:</td>
           <td>
             <table border="1">
               <tr ng-repeat="addr in output.scriptPubKey.addresses">
                 <td>
                   <a ng-href="#!/chain/{{selected_chain}}/address?address={{addr}}&start_height={{blockheight}}&end_height={{blockheight}}">{{ addr }}</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr ng-show="output.scriptPubKey.pegout_chain">
+          <td>scriptPubKey.pegout_chain:</td>
+          <td>{{ output.scriptPubKey.pegout_chain }}</td>
+        </tr>
+
+        <tr ng-show="output.scriptPubKey.pegout_asm">
+          <td>scriptPubKey.pegout_asm:</td>
+          <td>{{ output.scriptPubKey.pegout_asm }}</td>
+        </tr>
+
+        <tr ng-show="output.scriptPubKey.pegout_hex">
+          <td>scriptPubKey.pegout_hex:</td>
+          <td>{{ output.scriptPubKey.pegout_hex }}</td>
+        </tr>
+
+        <tr ng-show="output.scriptPubKey.pegout_reqSigs">
+          <td>scriptPubKey.pegout_reqSigs:</td>
+          <td>{{ output.scriptPubKey.pegout_reqSigs }}</td>
+        </tr>
+
+        <tr ng-show="output.scriptPubKey.pegout_type">
+          <td>scriptPubKey.pegout_type:</td>
+          <td>{{ output.scriptPubKey.pegout_type }}</td>
+        </tr>
+
+        <tr ng-show="output.scriptPubKey.pegout_addresses">
+          <td>scriptPubKey.pegout_addresses:</td>
+          <td>
+            <table border="1">
+              <tr ng-repeat="addr in output.scriptPubKey.pegout_addresses">
+                <td>
+                  <a ng-href="#!/chain/{{output.scriptPubKey.pegout_chain}}/address?address={{addr}}">{{ addr }}</a>
                 </td>
               </tr>
             </table>

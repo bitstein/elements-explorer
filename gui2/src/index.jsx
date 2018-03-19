@@ -16,9 +16,9 @@ function Body() {
         <div className="content-wrap">
           <Navbar />
           <Switch>
-            <Route exact path="/" component={RecentBlocks} />
-            <Route path="/block/:blockhash" component={BlockPage} />
-            <Route path="/tx/:txid" component={TransactionPage} />
+            <Route exact path="/gui2" component={RecentBlocks} />
+            <Route path="/gui2/block/:blockhash" component={BlockPage} />
+            <Route path="/gui2/tx/:txid" component={TransactionPage} />
           </Switch>
         </div>
         <Footer />

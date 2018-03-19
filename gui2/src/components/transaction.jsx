@@ -97,9 +97,9 @@ class Transaction extends Component {
               <div>Advanced Details</div>
               <div>
                 {(showAdvanced) ? (
-                  <img alt="" src="/static/img/icons/minus.svg" />
+                  <img alt="" src="/gui2/static/img/icons/minus.svg" />
                 ) : (
-                  <img alt="" src="/static/img/icons/plus.svg" />
+                  <img alt="" src="/gui2/static/img/icons/plus.svg" />
                 )}
               </div>
             </div>
@@ -112,7 +112,7 @@ class Transaction extends Component {
           <div>
             <div>
               <span className="helper" />
-              <img alt="" src="/static/img/icons/peg-in.svg" />
+              <img alt="" src="/gui2/static/img/icons/peg-in.svg" />
             </div>
           </div>
           <div className="vouts">

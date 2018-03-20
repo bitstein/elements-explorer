@@ -9,6 +9,7 @@ all: dev
 common-conf: docker/conf/explorer.env docker/conf/explorer.proc
 
 dev: common-conf
+	cd gui2 && npm run build
 	cd docker && docker-compose up --build
 staging: common-conf
 	cd docker && docker-compose up -d --build
